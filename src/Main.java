@@ -148,7 +148,7 @@ public class Main {
         for(int k=0;k<1000;k++)
             list4.add(list.get(k));
         startTime = System.nanoTime();
-        mergeSort(list4, tmp, 0, list4.size());
+        mergeSort(list4, tmp, 0, list4.size()-1);
         finishTime = System.nanoTime();
         writeFile.print((finishTime - startTime) + ",");
         // sort list using mergesort
@@ -158,7 +158,7 @@ public class Main {
             for(int l=0;l<fileSize;l++)
                 list5.add(list.get(l));
             startTime = System.nanoTime();
-            mergeSort(list5, tmp, 0, list5.size());
+            mergeSort(list5, tmp, 0, list5.size()-1);
             finishTime = System.nanoTime();
             writeFile.print((finishTime - startTime) + ",");
         }

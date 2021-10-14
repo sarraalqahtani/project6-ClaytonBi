@@ -43,7 +43,7 @@ public class Iris {
 
     //according to Professor Alqahtani, compareTo method does not need to be constructed because
     //compareTo is not a pre-constructed method in Comparator interface, so
-    //in method isLessThan, we will use compare from irisComparator class instead of compareTo
+    //in method isLessThan, we will use compare method from irisComparator class instead of compareTo
 
     //comparing method
     public boolean isLessThan(Iris Iris2){
