@@ -25,6 +25,15 @@ public class Iris {
         this.species = species;
     }
 
+    //copy constructor
+    public Iris(Iris iris){
+        sepalLength = iris.sepalLength;
+        sepalWidth = iris.sepalWidth;
+        petalLength = iris.petalLength;
+        petalWidth = iris.petalWidth;
+        species = iris.species;
+    }
+
     //getter of sepalLenbth
     public double getSepalLength(){
         return sepalLength;

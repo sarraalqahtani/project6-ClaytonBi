@@ -8,16 +8,11 @@ public class Main {
 
     //Method declarations
     public static void BubbleSort(ArrayList<Iris> a, int size){
-        boolean loop = true;
         for (int i = 0; i < size - 1; ++i){
             for (int j = 0; j < size - i - 1; ++j){
                 if (a.get(j+1).isLessThan(a.get(j))){//if the element of index j+1 is smaller than j, then swap the two elements
                     Collections.swap(a, j, j+1);
-                    loop = false;
                 }
-            }
-            if (loop){//if loop id true, it means there is no wap in the first loop of i, which means the array is already sorted, so break the loop
-                break;
             }
         }
     }
@@ -127,16 +122,16 @@ public class Main {
         for(int k=0;k<1000;k++)
             list3.add(list.get(k));
         startTime = System.nanoTime();
-        BubbleSort(list3, list3.size());
+        BubbleSort(list3, list3.size());//implement BubbleSort
         finishTime = System.nanoTime();
         writeFile.print((finishTime - startTime) + ",");
         int fileSize = 10000;
-        for (int i = 0; i < 10; ++i){//use a for loop to calculate time in 10 different bubble sort conditions
-            ArrayList <Iris> list2=new ArrayList<Iris>();
+        for (int i = 0; i < 10; ++i){//use a for loop to calculate time in 10 different bubble sort conditions (10k to 100k)
+            ArrayList <Iris> list2=new ArrayList<Iris>();//create copy from list for sorting
             for(int l=0;l<fileSize;l++)
                 list2.add(list.get(i));
             startTime = System.nanoTime();
-            BubbleSort(list2, list2.size());
+            BubbleSort(list2, list2.size());//implement BubbleSort
             finishTime = System.nanoTime();
             writeFile.print((finishTime - startTime) + ",");
             fileSize += 10000;
@@ -144,23 +139,25 @@ public class Main {
         writeFile.println();
 
         writeFile.print("Mergesort,");
-        ArrayList<Iris> list4 = new ArrayList<Iris>();
+        //first, use a 1k file
+        ArrayList<Iris> list4 = new ArrayList<Iris>();//create copy from list for sorting
         for(int k=0;k<1000;k++)
             list4.add(list.get(k));
         startTime = System.nanoTime();
-        mergeSort(list4, tmp, 0, list4.size()-1);
+        mergeSort(list4, tmp, 0, list4.size()-1);//implement mergesort
         finishTime = System.nanoTime();
         writeFile.print((finishTime - startTime) + ",");
         // sort list using mergesort
         fileSize = 10000;
-        for (int i = 0; i < 10; ++i){
-            ArrayList<Iris> list5 = new ArrayList<Iris>();
+        for (int i = 0; i < 10; ++i){//use a for loop to calculate time in 10 different mergesort conditions (10k to 100k)
+            ArrayList<Iris> list5 = new ArrayList<Iris>();//create copy from list for sorting
             for(int l=0;l<fileSize;l++)
                 list5.add(list.get(l));
             startTime = System.nanoTime();
-            mergeSort(list5, tmp, 0, list5.size()-1);
+            mergeSort(list5, tmp, 0, list5.size()-1);//implement mergeSort
             finishTime = System.nanoTime();
             writeFile.print((finishTime - startTime) + ",");
+            fileSize += 10000;
         }
         writeFile.close();
     }
